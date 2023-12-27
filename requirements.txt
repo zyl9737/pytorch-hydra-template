@@ -1,0 +1,18 @@
+﻿# --------- pytorch --------- #
+torch>=2.1.0
+tensorboard
+matplotlib
+torchvision
+torch_tb_profiler
+
+# --------- hydra --------- #
+hydra-core >=1.2.0
+hydra-colorlog >=1.2.0
+hydra-optuna-sweeper >= 1.2.0
+
+# --------- lightning --------- #
+lightning
+torchmetrics>=0.11.0
+
+# --------- others --------- #
+tqdm            # 终端中漂亮的文本格式,进度条，
