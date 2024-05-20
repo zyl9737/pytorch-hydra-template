@@ -43,7 +43,7 @@
 第一步，安装依赖  
 ```bash
 # 克隆项目   
-git clone https://github.com/SindreYang/pytorch-hydra-template
+git clone https://github.com/zyl9737/pytorch-hydra-template
 
 # 安装依赖   
 cd pytorch-hydra-template

@@ -3,8 +3,8 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 @path   ：pytorch-hydra-fabric-template -> __init__.py.py
 @IDE    ：PyCharm
-@Author ：sindre
-@Email  ：yx@mviai.com
+@Author ：icemoon
+@Email  ：zylbing@qq.com
 @Date   ：2023/12/12 15:46
 @Version: V0.1
 @License: (C)Copyright 2021-2023 , UP3D
@@ -44,7 +44,7 @@
                               神兽保佑                                 永无BUG
 
 """
-__author__ = 'sindre'
+__author__ = 'icemoon'
 
 
 def main():

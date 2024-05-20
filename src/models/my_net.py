@@ -1,7 +1,6 @@
 from torch import nn
 
 import torch
-import torch.nn as nn
 import torch.nn.parallel
 import torch.utils.data
 from torch.autograd import Variable
@@ -134,13 +133,13 @@ class PointNetEncoder(nn.Module):
             x = x.view(-1, 1024, 1).repeat(1, 1, N)
             return torch.cat([x, pointfeat], 1), trans, trans_feat
 
-
+# 计算特征转换的正则化损失
 def feature_transform_reguliarzer(trans):
     d = trans.size()[1]
-    I = torch.eye(d)[None, :, :]
+    Iu = torch.eye(d)[None, :, :]
     if trans.is_cuda:
-        I = I.cuda()
-    loss = torch.mean(torch.norm(torch.bmm(trans, trans.transpose(2, 1)) - I, dim=(1, 2)))
+        Iu = Iu.cuda()
+    loss = torch.mean(torch.norm(torch.bmm(trans, trans.transpose(2, 1)) - Iu, dim=(1, 2)))
     return loss
 
 

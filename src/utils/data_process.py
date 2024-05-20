@@ -3,8 +3,8 @@
 =================================================
 @path   ：pytorch-hydra-template -> data_process.py
 @IDE    ：PyCharm
-@Author ：sindre
-@Email  ：yx@mviai.com
+@Author ：icemoon
+@Email  ：zylbing@qq.com
 @Date   ：2022/12/22 17:30
 @Version: V0.1
 @License: (C)Copyright 2021-2022 , UP3D
@@ -13,7 +13,7 @@
 - 2022/12/22 :
 ==================================================
 '''
-__author__ = 'sindre'
+__author__ = 'icemoon'
 
 
 def main():
