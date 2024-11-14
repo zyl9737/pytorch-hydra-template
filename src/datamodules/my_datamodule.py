@@ -1,23 +1,23 @@
 import os
+
 import numpy as np
 import torch
-from torch.utils.data import ConcatDataset, DataLoader, Dataset, random_split
-from torchvision.transforms import transforms
+from torch.utils.data import DataLoader, Dataset, random_split
 
 
 class MyDataset(Dataset):
     def __init__(
-            self,
-            data_dir: str = "datasets/torch_datasets",
-            train_val_split:list=[0.9, 0.1] ,
-            batch_size: int = 2,
-            num_workers: int = 0,
-            pin_memory: bool = False,
-            seed: int = 1024,
-            mode: str = "train",
-            augmentation: bool = True,
-            prefetch_factor: int =2,
-            sample_size: int = 1024,
+        self,
+        data_dir: str = "datasets/torch_datasets",
+        train_val_split: list = [0.9, 0.1],
+        batch_size: int = 2,
+        num_workers: int = 0,
+        pin_memory: bool = False,
+        seed: int = 1024,
+        mode: str = "train",
+        augmentation: bool = True,
+        prefetch_factor: int = 2,
+        sample_size: int = 1024,
     ):
         super().__init__()
         path_list = []
@@ -37,14 +37,14 @@ class MyDataset(Dataset):
         self.seed = seed
         self.data_augmentation = augmentation
         self.sample_size = sample_size
-        self.prefetch_factor=prefetch_factor
+        self.prefetch_factor = prefetch_factor
 
         if mode == "train":
             self.datasets = self.data_train
         elif mode == "val":
             self.datasets = self.data_val
         elif mode == "test_performance":
-            self.datasets = torch.utils.data.dataset.Subset(self.data_train,list(range(batch_size*10)))
+            self.datasets = torch.utils.data.dataset.Subset(self.data_train, list(range(batch_size * 10)))
 
     def __len__(self):
         return len(self.datasets)
@@ -73,7 +73,7 @@ class MyDataset(Dataset):
 
         # 归一化
         point_set = point_set - np.expand_dims(np.mean(point_set, axis=0), 0)  # 中心点
-        dist = np.max(np.sqrt(np.sum(point_set ** 2, axis=1)), 0)
+        dist = np.max(np.sqrt(np.sum(point_set**2, axis=1)), 0)
         point_set = point_set / dist  # 缩放
 
         # 数据增强
@@ -85,7 +85,7 @@ class MyDataset(Dataset):
 
         # 转换类型
         point_set = torch.from_numpy(point_set.astype(np.float32)).transpose(1, 0)
-        labels = torch.from_numpy(np.array([labels]).astype(np.int64))-1  # 从0开始
+        labels = torch.from_numpy(np.array([labels]).astype(np.int64)) - 1  # 从0开始
 
         # import trimesh
         # trimesh.PointCloud(point_set.transpose(1, 0)).show()
@@ -116,7 +116,3 @@ class MyDataset(Dataset):
             worker_init_fn=self._init_fn,
             prefetch_factor=self.prefetch_factor,
         )
-
-
-
-
